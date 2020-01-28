@@ -17,7 +17,7 @@ public class Project1 {
 		
 		Scanner input = new Scanner(System.in);
 		int whichMethod = input.nextInt();
-		//Switch case so user can input a number and get an organization based on what they want
+		//Switch case so user can input a number and sort the countries in whatever way they want
 		while(testInput == 1) {
 			switch(whichMethod) {
 			case 1:
@@ -77,16 +77,21 @@ public class Project1 {
 		//Finds file and puts it into a Country type array
 			File countryInfo = new File("Countries1.csv");
 			Scanner sc = new Scanner(countryInfo);
-			//int j = 0;
+			int i = 1000000;
 			sc.useDelimiter("\\n");
 			//Make array length less stupid?
-			Country[] fileInfo = new Country[156];
+			String[] temp = new String[i];
+			Country[] fileInfo = new Country[i];
 			for(int x = 0; sc.hasNext(); x++) {
-				Country country = new Country(sc.next());
-				fileInfo[x] = country;
+				temp[x] = sc.next();
+				fileInfo[i] = new Country(temp, fileInfo);
+				//Country country = new Country(temp, fileInfo);
+				//fileInfo[x] = country;
+				System.out.println(temp[x]);
+				System.out.println();
+				System.out.println(fileInfo[x]);
 			}
 			System.out.println();
-			System.out.println(fileInfo);
 		}
 	
 	public static void countriesReport() {

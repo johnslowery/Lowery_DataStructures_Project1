@@ -1,12 +1,12 @@
-
 public class Country {
 
-	String what;
+	String[] temp;
+	Country [] arr;
 	String name;
 	
-	public Country(String x) {
-		what = x;
-		Country count = new Country(x);
+	public Country(String[] x, Country[] y) {
+		temp = x;
+		arr = y;
 	}
 	
 	public String getName() {
